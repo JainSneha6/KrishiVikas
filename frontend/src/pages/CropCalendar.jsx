@@ -37,7 +37,7 @@ const CropCalendarPage = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ cropName, latitude, longitude, lang}),
+        body: JSON.stringify({ cropName, latitude, longitude, lang }),
       });
 
       if (!response.ok) {

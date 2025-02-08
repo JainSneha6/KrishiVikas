@@ -10,6 +10,14 @@ import pandas as pd
 import numpy as np
 from statsmodels.tsa.statespace.sarimax import SARIMAX
 from datetime import timedelta
+import traceback
+import joblib
+import json
+from geopy.geocoders import Nominatim
+import random
+import sqlite3
+from sklearn.cluster import KMeans
+
 
 app = Flask(__name__)
 CORS(app)
@@ -19,11 +27,112 @@ WEATHER_API_KEY = 'f28861253e574c589d5111924242807'
 GEMINI_API_KEY = 'AIzaSyDNOtokPHTUm9WCJ1pOPaweUp_Rks9DhjI'
 UNSPLASH_ACCESS_KEY = 'YAd-Af7cIyfplIFBCWaKRL1XiNE6VsFULmx-ln-_HfY'
 
+
+DB_NAME = "complaints.db"
+
+
 # Initialize Gemini Model
 genai.configure(api_key=GEMINI_API_KEY)
 model = genai.GenerativeModel("gemini-1.5-flash")
 
 app.config['UPLOAD_FOLDER'] = './uploads' 
+
+# Load the trained model
+yield_model = joblib.load("crop_yield_model.pkl")
+
+# Load the model columns saved during training
+with open("model_columns.json", "r") as f:
+    model_columns = json.load(f)
+
+# A simple mapping for state climate data (can be enhanced)
+states_climate = {
+    "Punjab":         {"AvgTemperature(C)": 25, "AnnualRainfall(mm)": 650},
+    "Haryana":        {"AvgTemperature(C)": 26, "AnnualRainfall(mm)": 600},
+    "Uttar Pradesh":  {"AvgTemperature(C)": 27, "AnnualRainfall(mm)": 900},
+    "Maharashtra":    {"AvgTemperature(C)": 28, "AnnualRainfall(mm)": 1000},
+    "West Bengal":    {"AvgTemperature(C)": 29, "AnnualRainfall(mm)": 1500},
+}
+
+
+
+def get_db_connection():
+    """
+    Creates and returns a SQLite connection to 'complaints.db'.
+    """
+    conn = sqlite3.connect(DB_NAME, check_same_thread=False)
+    conn.row_factory = sqlite3.Row  # So we get rows as dictionaries
+    return conn
+
+def init_db():
+    """
+    Ensures the 'complaints' table is created with these columns:
+      id, text, latitude, longitude, embedding, cluster_id, created_at
+    """
+    conn = get_db_connection()
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS complaints (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            text TEXT NOT NULL,
+            latitude REAL,
+            longitude REAL,
+            embedding TEXT,
+            cluster_id INTEGER,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+        );
+    """)
+    conn.commit()
+    conn.close()
+
+def run_clustering():
+    conn = get_db_connection()
+    rows = conn.execute("SELECT id, embedding, latitude, longitude FROM complaints").fetchall()
+    
+    vectors = []
+    ids = []
+
+    for row in rows:
+        if row["embedding"] is None:
+            continue
+        try:
+            emb = json.loads(row["embedding"])  # parse JSON list
+        except:
+            continue
+        
+        # Optionally combine lat/long
+        lat = float(row["latitude"] or 0.0)
+        lon = float(row["longitude"] or 0.0)
+
+        # If you want lat/long to matter, do something like:
+        # combined_vector = emb + [lat/5.0, lon/5.0]
+        # The /5.0 is a rough normalization—tweak as needed
+        combined_vector = emb
+
+        vectors.append(combined_vector)
+        ids.append(row["id"])
+
+    if not vectors:
+        conn.close()
+        return 0
+
+    X = np.array(vectors)
+
+    # Suppose we want exactly 3 clusters
+    kmeans = KMeans(n_clusters=3, random_state=42)
+    labels = kmeans.fit_predict(X)
+
+    # Update DB
+    for i, label in enumerate(labels):
+        cid = int(label)
+        complaint_id = ids[i]
+        conn.execute("UPDATE complaints SET cluster_id=? WHERE id=?", (cid, complaint_id))
+
+    conn.commit()
+    conn.close()
+    return 3  # We forced 3 clusters
+
+init_db()  # Make sure 'complaints' table exists
+
+
 
 @app.route('/recommendations', methods=['POST'])
 def recommendations():
@@ -348,6 +457,136 @@ def forecast():
         'forecast': forecast_output
     }
     return jsonify(response)
+
+
+def get_state_from_coordinates(latitude, longitude):
+    geolocator = Nominatim(user_agent="geoapi")
+    try:
+        location = geolocator.reverse((latitude, longitude), exactly_one=True)
+        if location and "state" in location.raw["address"]:
+            return location.raw["address"]["state"]
+    except Exception as e:
+        print("Geolocation error:", e)
+    return None
+
+@app.route('/predict', methods=['POST'])
+def predict():
+    data = request.json
+    if not data:
+        return jsonify({"error": "No JSON payload received"}), 400
+
+    def safe_float(value):
+        try:
+            return float(value)
+        except:
+            return 0.0
+
+    crop_type = data.get("cropType", "")
+    land_size = safe_float(data.get("landSize"))
+    fertilizer = safe_float(data.get("fertilizer"))
+    pesticide = safe_float(data.get("pesticide"))
+    latitude = safe_float(data.get("latitude"))
+    longitude = safe_float(data.get("longitude"))
+
+    state = get_state_from_coordinates(latitude, longitude)
+    if not state:
+        return jsonify({"error": "Could not determine state from coordinates"}), 400
+
+    avg_temp = states_climate.get(state, {"AvgTemperature(C)": 25})["AvgTemperature(C)"]
+    annual_rainfall = states_climate.get(state, {"AnnualRainfall(mm)": 700})["AnnualRainfall(mm)"]
+
+    input_dict = {
+        "Year": [2024],
+        "LandSize(ha)": [land_size],
+        "FertilizerUsage(kg_ha)": [fertilizer],
+        "PesticideUsage(kg_ha)": [pesticide],
+        "AvgTemperature(C)": [avg_temp],
+        "AnnualRainfall(mm)": [annual_rainfall],
+        "State_Haryana": [1 if state == "Haryana" else 0],
+        "State_Maharashtra": [1 if state == "Maharashtra" else 0],
+        "State_Punjab": [1 if state == "Punjab" else 0],
+        "State_Uttar Pradesh": [1 if state == "Uttar Pradesh" else 0],
+        "State_West Bengal": [1 if state == "West Bengal" else 0],
+        "CropType_Rice": [1 if crop_type == "Rice" else 0],
+        "CropType_Wheat": [1 if crop_type == "Wheat" else 0],
+        "CropType_Maize": [1 if crop_type == "Maize" else 0]
+    }
+
+    try:
+        input_df = pd.DataFrame(input_dict)[model_columns]
+    except Exception as e:
+        print("Column mismatch error:", e)
+        return jsonify({"error": f"Column mismatch: {str(e)}"}), 400
+
+    try:
+        prediction = yield_model.predict(input_df)[0]
+        return jsonify({"predicted_yield": round(float(prediction), 2)})
+    except Exception as e:
+        traceback.print_exc()
+        return jsonify({"error": str(e)}), 400
+    
+
+@app.route('/submit-complaint', methods=['POST'])
+def submit_complaint():
+    """
+    Expects JSON:
+    {
+      "text": "My crops are failing...",
+      "latitude": 30.1234,
+      "longitude": 76.2345
+    }
+    1. Generates a random embedding (for demonstration).
+    2. Stores complaint in DB with cluster_id=None (initially).
+    """
+    data = request.json
+    if not data:
+        return jsonify({"error": "No data provided"}), 400
+
+    complaint_text = data.get("text", "")
+    lat = data.get("latitude")
+    lon = data.get("longitude")
+
+    if not complaint_text or lat is None or lon is None:
+        return jsonify({"error": "Please provide text, latitude, and longitude"}), 400
+
+    # Generate a random 5D embedding as a placeholder
+    random_embedding = [round(random.uniform(-1, 1), 3) for _ in range(5)]
+    embedding_json = json.dumps(random_embedding)
+
+    # Insert into DB
+    conn = get_db_connection()
+    conn.execute("""
+        INSERT INTO complaints (text, latitude, longitude, embedding)
+        VALUES (?, ?, ?, ?)
+    """, (complaint_text, lat, lon, embedding_json))
+    conn.commit()
+    conn.close()
+
+    return jsonify({"message": "Complaint submitted successfully"}), 200
+
+@app.route('/run-clustering', methods=['POST'])
+def do_clustering():
+    num_clusters = run_clustering()
+    return jsonify({"message": f"Clustering complete. #clusters={num_clusters}"}), 200
+
+@app.route('/complaints', methods=['GET'])
+def get_complaints():
+    conn = get_db_connection()
+    rows = conn.execute("SELECT * FROM complaints").fetchall()
+    conn.close()
+
+    complaints = []
+    for row in rows:
+        complaints.append({
+            "id": row["id"],
+            "text": row["text"],
+            "latitude": row["latitude"],
+            "longitude": row["longitude"],
+            "embedding": row["embedding"],
+            "cluster_id": row["cluster_id"],
+            "created_at": row["created_at"]
+        })
+    return jsonify(complaints)
 
 if __name__ == '__main__':
     if not os.path.exists(app.config['UPLOAD_FOLDER']):

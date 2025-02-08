@@ -14,9 +14,8 @@ const Sidebar = () => {
     <>
       {/* Sidebar */}
       <div
-        className={`fixed top-0 left-0 h-full w-64 bg-[#6B8E23] text-white transform ${
-          isOpen ? 'translate-x-0' : '-translate-x-full'
-        } transition-transform duration-300 ease-in-out z-50 p-6 overflow-y-auto shadow-lg`}
+        className={`fixed top-0 left-0 h-full w-64 bg-[#6B8E23] text-white transform ${isOpen ? 'translate-x-0' : '-translate-x-full'
+          } transition-transform duration-300 ease-in-out z-50 p-6 overflow-y-auto shadow-lg`}
       >
         <button
           className="text-white text-2xl font-bold absolute top-4 right-4 focus:outline-none"
@@ -46,6 +45,15 @@ const Sidebar = () => {
             </li>
             <li>
               <Link to="/market-trends" className="text-white text-lg hover:underline">{t('Time Series Based Market Forecasting')}</Link>
+            </li>
+            <li>
+              <Link to="/yield-pred" className="text-white text-lg hover:underline">{t('SVM Enhanced Precision Yield Forecasting')}</Link>
+            </li>
+            <li>
+              <Link to="/agri-loans" className="text-white text-lg hover:underline">{t('Agricultural Loans')}</Link>
+            </li>
+            <li>
+              <Link to="/complaints" className="text-white text-lg hover:underline">{t('crowdsourced_farm_reporting')}</Link>
             </li>
           </ul>
         </nav>
