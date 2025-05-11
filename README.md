@@ -151,6 +151,26 @@ We focus on inclusivity and accessibility through multilingual support, personal
 
 ---
 
+
+## 📊 Competitor Analysis
+
+We evaluated Krishi-Vikas alongside top AgriTech players—Plantix, Kindwise, and Cropin—across five core features. Our product stands out with comprehensive AI-driven solutions tailored for farmers' diverse needs.
+
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/e4531ddb-816f-4f37-964e-6b364bc2c5d8" alt="Competitor Analysis Slide" width="700"/>
+</div>
+
+### ✅ Key Advantages of Krishi-Vikas:
+- Full-stack AI coverage: from **crop recommendation** to **income advisory**
+- Uniquely offers **geo-spatial issue mapping** using crowdsourced data
+- Combines **CNN**, **time-series**, and **chatbot tech** in one solution
+
+Krishi-Vikas clearly leads in providing an all-in-one platform for small and marginal farmers.
+
+---
+
+
 ## 🧩 Business Model & 🔍 Research Overview
 
 The following slide presents our business model and research foundation for **Krishi Vikas**:
