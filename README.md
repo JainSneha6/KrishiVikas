@@ -86,8 +86,8 @@ Farmers, especially those managing less than 2 hectares of land, face multiple c
 ## Architecture
 
 <div align="center">
-  <!-- Replace with your actual diagram path -->
- ![image](https://github.com/user-attachments/assets/5a2f5bb6-0d59-4ec2-b27d-1cb994894183)
+
+ <img src="https://github.com/user-attachments/assets/5a2f5bb6-0d59-4ec2-b27d-1cb994894183"  width="700"/>
 
 </div>
 
