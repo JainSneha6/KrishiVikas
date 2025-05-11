@@ -105,10 +105,9 @@ Farmers, especially those managing less than 2 hectares of land, face multiple c
 
 We focus on inclusivity and accessibility through multilingual support, personalized user targeting, and a tech stack that ensures adaptability across use cases.
 
-![image]()
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/94bced6e-cb32-470d-a8a0-b40f54f0a865g" alt="Diversity and Tech Stack Slide" width="700"/>
+  <img src="https://github.com/user-attachments/assets/2dfc3788-2f11-48db-a93f-94926160e2ec" alt="Diversity and Tech Stack Slide" width="700"/>
 </div>
 
 ### 🔑 Key Focus Areas:
