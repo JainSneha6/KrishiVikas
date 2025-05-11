@@ -22,15 +22,16 @@
 ## Overview
 **Krishi Vikas** is an end-to-end, AI-driven platform designed to empower small and marginal farmers with smart, data-backed advice at every stage of the crop lifecycle. From choosing the right crop variety for your agro-climatic zone to diagnosing plant diseases, forecasting yield and price, reporting in-field issues, and suggesting alternative income streams—Krishi Vikas brings cutting-edge ML/AI tools into the hands of those who need them most.
 
--Team **Pioneers**:  
-- Siddhartha Chakrabarty  
-- Sneha Jain  
-- Soham Surdas  
-- Saif Khan  
-
 ---
 
 ## Problem Statement
+
+<div align="center">
+
+ <img src="https://github.com/user-attachments/assets/cafffacd-a5e9-49f1-a08e-f025cd1ac6f8"  width="700"/>
+
+</div>
+
 Farmers, especially those managing less than 2 hectares of land, face multiple challenges:
 
 1. **Sub-optimal Crop Selection**  
@@ -54,6 +55,12 @@ Farmers, especially those managing less than 2 hectares of land, face multiple c
 ---
 
 ## Features
+<div align="center">
+
+ <img src="https://github.com/user-attachments/assets/b4ab4cfe-12a2-4423-866d-dadc41029e8a"  width="700"/>
+
+</div>
+
 
 ### 1️⃣ Agro-Climatic Crop Recommendation  
 - **AgriBERT-powered** suggestions tailored to location, weather patterns, and soil type  
