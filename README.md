@@ -101,16 +101,31 @@ Farmers, especially those managing less than 2 hectares of land, face multiple c
 
 ---
 
-## Tech Stack
+## 🌐 Why Diversity is Our Topmost Priority
 
-| Layer          | Technologies                                   |
-| -------------- | ---------------------------------------------- |
-| **Frontend**   | React.js, Ionic                                  |
-| **Backend**    | Python, Flask                                    |
-| **ML / AI**    | TensorFlow (CNN), scikit-learn (SVM, K-means), statsmodels (SARIMA), AgriBERT, mBERT |
-| **Data & Misc**| PostgreSQL / MongoDB, Redis, Google TTS, Geospatial libraries |
+We focus on inclusivity and accessibility through multilingual support, personalized user targeting, and a tech stack that ensures adaptability across use cases.
+
+![image]()
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/94bced6e-cb32-470d-a8a0-b40f54f0a865g" alt="Diversity and Tech Stack Slide" width="700"/>
+</div>
+
+### 🔑 Key Focus Areas:
+- **Multilingual Support** with `mBERT` for better regional understanding
+- **Voice Assistant** using **Google Text to Speech** for non-literate users
+- **User-Centric Design** mapping advice to regional weather and soil types
+- **Diverse Feature Set** catering to every farmer's needs
+
+### ⚙️ Tech Stack Overview:
+- **Frontend:** React (Web), Ionic (Mobile)
+- **Backend:** Flask
+- **ML & AI Models:** TensorFlow, Scikit-learn, Python, Statsmodels
+
+> This diverse and inclusive technology stack allows us to reach more users with tailored solutions.
 
 ---
+
 
 ## Installation
 
