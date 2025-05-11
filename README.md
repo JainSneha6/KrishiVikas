@@ -87,7 +87,8 @@ Farmers, especially those managing less than 2 hectares of land, face multiple c
 
 <div align="center">
   <!-- Replace with your actual diagram path -->
-  ![Architecture Diagram](docs/architecture_diagram.png)  
+ ![image](https://github.com/user-attachments/assets/5a2f5bb6-0d59-4ec2-b27d-1cb994894183)
+
 </div>
 
 **Flow:**  
@@ -96,6 +97,7 @@ Farmers, especially those managing less than 2 hectares of land, face multiple c
 3. **ML/AI Models** (TensorFlow, scikit-learn, statsmodels)  
 4. **Database** for user, farm, and report data  
 5. **External APIs** for weather, geolocation, and TTS  
+
 
 ---
 
