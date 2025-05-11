@@ -1,6 +1,4 @@
-# 🌾 Krishi Vikas  
-**An AI-Powered Farmer Assist Platform**
-
+# 🌾 Krishi Vikas  - An AI-Powered Farmer Assist Platform
 ---
 
 ## Table of Contents
