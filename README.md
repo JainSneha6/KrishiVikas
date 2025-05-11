@@ -1,6 +1,10 @@
 # 🌾 Krishi Vikas  - An AI-Powered Farmer Assist Platform
 ---
 
+Krishi Vikas is an AI-powered agricultural platform built to support small and marginal farmers.
+It offers personalized crop advice, disease diagnostics, market forecasts, and income alternatives using cutting-edge ML and NLP.
+Designed for inclusivity, the platform ensures accessibility through multilingual and voice-enabled interfaces.
+
 ## Table of Contents
 1. [Overview](#overview)  
 2. [Problem Statement](#problem-statement)  
