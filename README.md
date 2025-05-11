@@ -132,4 +132,38 @@ Farmers, especially those managing less than 2 hectares of land, face multiple c
    npm start      # React web on http://localhost:3000
    ionic serve    # Mobile preview
    ```
-   
+
+---
+
+## 🧩 Business Model & 🔍 Research Overview
+
+The following slide presents our business model and research foundation for **Krishi Vikas**:
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/a99c00f5-84e0-450f-9601-6586217422bd" alt="Business Model and Research Slide" width="700"/>
+</div>
+
+ **Key Highlights**  
+ - Targeting 86% of Indian farmers (small & marginal).  
+ - Cost-efficient model focusing on cloud and marketing.  
+ - Research backed by cutting-edge models like AgriBERT, FinBERT, SARIMA, and CNN.  
+ - Monetization through B2C access and ad revenue.
+
+### 🔬 Research References  
+
+- **Why AgriBERT?**  
+  [Exploring New Frontiers in Agricultural NLP](https://ieeexplore.ieee.org/abstract/document/10637955)
+
+- **Why finBERT?**  
+  [Financial Sentiment Analysis on News and Reports Using FinBERT](https://ieeexplore.ieee.org/abstract/document/10796670)
+
+- **Why SARIMA?**  
+  [Study and Analysis of SARIMA and LSTM in Forecasting Time Series Data](https://www.sciencedirect.com/science/article/abs/pii/S2213138821004847)
+
+- **Why CNN?**  
+  [Classification of Plant Diseases Using Pretrained CNN on ImageNet](https://openagriculturejournal.com/VOLUME/18/ELOCATOR/e18743315305194/FULLTEXT/)
+
+
+---
+
+
