@@ -122,5 +122,15 @@
     "network_error": "নেটওয়ার্ক ত্রুটি",
     "error_submitting": "অভিযোগ জমা দিতে সমস্যা",
     "fill_complaint_text": "অনুগ্রহ করে অভিযোগের বিবরণ এবং অবস্থান পূরণ করুন",
-    "error_running_clustering": "ক্লাস্টারিং চালাতে সমস্যা"
+    "error_running_clustering": "ক্লাস্টারিং চালাতে সমস্যা",
+    "Micro Investments": "মাইক্রো বিনিয়োগ",
+    "Invest Now": "এখন বিনিয়োগ করুন",
+    "Investment": "বিনিয়োগ",
+    "Add ₹500": "₹500 যোগ করুন",
+    "Close": "বন্ধ করুন",
+    "PM Kisan Maan Dhan Yojana": "পিএম কিষান মান ধন যোজনা",
+    "KUSUM Solar Scheme": "কুসুম সৌর প্রকল্প",
+    "Dairy Entrepreneurship Development Scheme": "দুগ্ধ উদ্যোগ উন্নয়ন প্রকল্প",
+    "National Horticulture Mission": "জাতীয় উদ্যানপালন মিশন",
+    "Poultry Venture Capital Fund": "পোল্ট্রি ভেঞ্চার ক্যাপিটাল ফান্ড"
 }

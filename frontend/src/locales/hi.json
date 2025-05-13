@@ -146,5 +146,15 @@
   "network_error": "नेटवर्क त्रुटि",
   "error_submitting": "शिकायत दर्ज करने में त्रुटि",
   "fill_complaint_text": "कृपया शिकायत विवरण और स्थान भरें",
-  "error_running_clustering": "क्लस्टरिंग चलाने में त्रुटि"
+  "error_running_clustering": "क्लस्टरिंग चलाने में त्रुटि",
+  "Micro Investments": "सूक्ष्म निवेश",
+  "Invest Now": "अभी निवेश करें",
+  "Investment": "निवेश",
+  "Add ₹500": "₹500 जोड़ें",
+  "Close": "बंद करें",
+  "PM Kisan Maan Dhan Yojana": "पीएम किसान मान धन योजना",
+  "KUSUM Solar Scheme": "कुसुम सौर योजना",
+  "Dairy Entrepreneurship Development Scheme": "डेयरी उद्यमिता विकास योजना",
+  "National Horticulture Mission": "राष्ट्रीय बागवानी मिशन",
+  "Poultry Venture Capital Fund": "पोल्ट्री वेंचर कैपिटल फंड"
 }

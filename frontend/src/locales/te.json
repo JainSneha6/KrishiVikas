@@ -99,5 +99,15 @@
   "network_error": "నెట్‌వర్క్ లోపం",
   "error_submitting": "ఫిర్యాదు సమర్పించడంలో లోపం",
   "fill_complaint_text": "దయచేసి ఫిర్యాదు వివరాలు మరియు స్థానం నమోదు చేయండి",
-  "error_running_clustering": "క్లస్టరింగ్ నడపడంలో లోపం"
+  "error_running_clustering": "క్లస్టరింగ్ నడపడంలో లోపం",
+  "Micro Investments": "సూక్ష్మ పెట్టుబడులు",
+  "Invest Now": "ఇప్పుడే పెట్టుబడి పెట్టండి",
+  "Investment": "పెట్టుబడి",
+  "Add ₹500": "₹500 జోడించండి",
+  "Close": "మూసివేయి",
+  "PM Kisan Maan Dhan Yojana": "పీఎం కిసాన్ మాన్ ధన్ యోజన",
+  "KUSUM Solar Scheme": "కుసుం సోలార్ పథకం",
+  "Dairy Entrepreneurship Development Scheme": "పాల పరిశ్రమ వ్యాపార అభివృద్ధి పథకం",
+  "National Horticulture Mission": "జాతీయ తోటల మిషన్",
+  "Poultry Venture Capital Fund": "పౌల్ట్రీ వెంచర్ క్యాపిటల్ ఫండ్"
 }

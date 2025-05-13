@@ -383,12 +383,13 @@ def generate_crop_calendar():
         print(f"Error while generating crop calendar: {e}")
         return jsonify({"message": "Error generating crop calendar"}), 500
     
-df = pd.read_csv('../data/crop_sales_data.csv', parse_dates=['Date'])
+df = pd.read_csv('../data/indian_crop_sales_data.csv', parse_dates=['Date'])
 
-# 2) Pre-calculate best and worst sellers
+
 crop_sums = df.groupby('Crop')['Quantity Sold (kg)'].sum().sort_values(ascending=False)
 top_3_crops = crop_sums.head(3)
 bottom_3_crops = crop_sums.tail(3)
+
 
 @app.route('/best_worst_sellers', methods=['GET'])
 def best_worst_sellers():
@@ -403,6 +404,7 @@ def best_worst_sellers():
         'worst_sellers': worst_sellers_df.to_dict(orient='records')
     }
     return jsonify(response)
+
 
 @app.route('/forecast', methods=['GET'])
 def forecast():

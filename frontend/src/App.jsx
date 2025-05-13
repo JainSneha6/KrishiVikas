@@ -12,6 +12,7 @@ import MarketTrends from './pages/MarketTrends';
 import YieldPredictionPage from './pages/YieldPredictionPage';
 import AgriculturalLoans from './pages/AgriculturalLoans';
 import ComplaintsPage from './pages/ComplaintsPage';
+import MicroInvestments from './pages/MicroInvestments';
 
 function App() {
   return (
@@ -30,7 +31,7 @@ function App() {
         <Route path="/yield-pred" element={<YieldPredictionPage />} />
         <Route path="/agri-loans" element={<AgriculturalLoans />} />
         <Route path="/complaints" element={<ComplaintsPage />} />
-
+        <Route path="/investments" element={<MicroInvestments />} />
       </Routes>
     </Router>
   );

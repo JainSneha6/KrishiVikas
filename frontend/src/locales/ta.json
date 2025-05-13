@@ -116,5 +116,15 @@
   "network_error": "நெட்வொர்க் பிழை",
   "error_submitting": "முறையீடு செய்யும் போது பிழை",
   "fill_complaint_text": "தயவுசெய்து முறையீட்டின் விவரங்களும் இடத்தையும் நிரப்பவும்",
-  "error_running_clustering": "கிளஸ்டரிங் செயல்படுத்தும் போது பிழை"
+  "error_running_clustering": "கிளஸ்டரிங் செயல்படுத்தும் போது பிழை",
+  "Micro Investments": "மைக்ரோ முதலீடுகள்",
+  "Invest Now": "இப்போது முதலீடு செய்யுங்கள்",
+  "Investment": "முதலீடு",
+  "Add ₹500": "₹500 சேர்க்க",
+  "Close": "மூடுக",
+  "PM Kisan Maan Dhan Yojana": "பி.எம். கிசான் மான் தன்யோஜனா",
+  "KUSUM Solar Scheme": "குஸும் சோலார் திட்டம்",
+  "Dairy Entrepreneurship Development Scheme": "பால்வள தொழில் மேம்பாட்டு திட்டம்",
+  "National Horticulture Mission": "தேசிய தோட்டக்கலை திட்டம்",
+  "Poultry Venture Capital Fund": "கோழி தொழில் முனைவோர் நிதி"
 }

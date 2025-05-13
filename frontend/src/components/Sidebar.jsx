@@ -55,6 +55,9 @@ const Sidebar = () => {
             <li>
               <Link to="/complaints" className="text-white text-lg hover:underline">{t('crowdsourced_farm_reporting')}</Link>
             </li>
+            <li>
+              <Link to="/investments" className="text-white text-lg hover:underline">{t('Micro Investments')}</Link>
+            </li>
           </ul>
         </nav>
       </div>

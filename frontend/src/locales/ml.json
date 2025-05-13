@@ -122,5 +122,15 @@
   "network_error": "നെറ്റ്വർക്കിൽ പിശക്",
   "error_submitting": "പരാതി സമർപ്പിക്കുന്നതിൽ പിശക്",
   "fill_complaint_text": "ദയവായി പരാതിയുടെ വിശദാംശങ്ങളും സ്ഥലവും പൂരിപ്പിക്കുക",
-  "error_running_clustering": "ക്ലസ്റ്ററിംഗ് പ്രവർത്തിപ്പിക്കുന്നതിൽ പിശക്"
+  "error_running_clustering": "ക്ലസ്റ്ററിംഗ് പ്രവർത്തിപ്പിക്കുന്നതിൽ പിശക്",
+  "Micro Investments": "മൈക്രോ നിക്ഷേപം",
+  "Invest Now": "ഇപ്പോൾ നിക്ഷേപിക്കൂ",
+  "Investment": "നിക്ഷേപം",
+  "Add ₹500": "₹500 ചേർക്കുക",
+  "Close": "അടയ്ക്കുക",
+  "PM Kisan Maan Dhan Yojana": "പി.എം. കിസാൻ മാന്ധൻ യോജന",
+  "KUSUM Solar Scheme": "കുസും സോളാർ പദ്ധതി",
+  "Dairy Entrepreneurship Development Scheme": "ഡയറി സംരംഭക വികസന പദ്ധതി",
+  "National Horticulture Mission": "ദേശീയ തോട്ടകൃഷി മിഷൻ",
+  "Poultry Venture Capital Fund": "കോഴി സംരംഭ വഞ്ചർ ക്യാപിറ്റൽ ഫണ്ട്"
 }
