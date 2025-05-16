@@ -9,14 +9,14 @@ Designed for inclusivity, the platform ensures accessibility through multilingua
 
 | Section | Description |
 |--------|-------------|
-| [1. Overview](#overview) | Introduction to Krishi Vikas and its mission |
-| [2. Problem Statement](#problem-statement) | Challenges faced by small and marginal farmers |
-| [3. Features](#features) | Overview of all AI-powered modules like crop advisory, disease detection, and more |
-| [4. Architecture](#architecture) | System design and data flow architecture |
-| [5. 🌐 Diversity & Tech Stack](#-why-diversity-is-our-topmost-priority) | Accessibility focus and complete tech stack overview |
-| [6. Installation](#installation) | Step-by-step guide to set up backend and frontend |
-| [7. 📊 Competitor Analysis](#-competitor-analysis) | Comparison with top AgriTech platforms |
-| [8. 🧩 Business Model & 🔍 Research Overview](#-business-model--research-overview) | Strategy, monetization, and research-backed innovation |
+|1. [ Overview](#overview) | Introduction to Krishi Vikas and its mission |
+|2. [ Problem Statement](#problem-statement) | Challenges faced by small and marginal farmers |
+|3. [ Features](#features) | Overview of all AI-powered modules like crop advisory, disease detection, and more |
+|4. [ Architecture](#architecture) | System design and data flow architecture |
+|5. [ Diversity & Tech Stack](#-why-diversity-is-our-topmost-priority) | Accessibility focus and complete tech stack overview |
+|6. [ Installation](#installation) | Step-by-step guide to set up backend and frontend |
+|7. [ Competitor Analysis](#-competitor-analysis) | Comparison with top AgriTech platforms |
+|8. [ Business Model & Research Overview](#-business-model-and-research-overview) | Strategy, monetization, and research-backed innovation |
 
 ---
 
@@ -260,7 +260,7 @@ Krishi-Vikas clearly leads in providing an all-in-one platform for small and mar
 ---
 
 
-## 🧩 Business Model & 🔍 Research Overview
+## 🧩 Business Model and Research Overview
 
 The following slide presents our business model and research foundation for **Krishi Vikas**:
 
