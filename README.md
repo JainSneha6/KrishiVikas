@@ -5,19 +5,18 @@ Krishi Vikas is an AI-powered agricultural platform built to support small and m
 It offers personalized crop advice, disease diagnostics, market forecasts, and income alternatives using cutting-edge ML and NLP.
 Designed for inclusivity, the platform ensures accessibility through multilingual and voice-enabled interfaces.
 
-## Table of Contents
-1. [Overview](#overview)  
-2. [Problem Statement](#problem-statement)  
-3. [Features](#features)  
-4. [Architecture](#architecture)  
-5. [Tech Stack](#tech-stack)  
-6. [Installation](#installation)  
-7. [Usage](#usage)  
-8. [Project Structure](#project-structure)  
-9. [Models & Data](#models--data)  
-10. [Contributing](#contributing)  
-11. [License](#license)  
-12. [Contact](#contact)  
+## 📚 Table of Contents
+
+| Section | Description |
+|--------|-------------|
+| [1. Overview](#overview) | Introduction to Krishi Vikas and its mission |
+| [2. Problem Statement](#problem-statement) | Challenges faced by small and marginal farmers |
+| [3. Features](#features) | Overview of all AI-powered modules like crop advisory, disease detection, and more |
+| [4. Architecture](#architecture) | System design and data flow architecture |
+| [5. 🌐 Diversity & Tech Stack](#-why-diversity-is-our-topmost-priority) | Accessibility focus and complete tech stack overview |
+| [6. Installation](#installation) | Step-by-step guide to set up backend and frontend |
+| [7. 📊 Competitor Analysis](#-competitor-analysis) | Comparison with top AgriTech platforms |
+| [8. 🧩 Business Model & 🔍 Research Overview](#-business-model--research-overview) | Strategy, monetization, and research-backed innovation |
 
 ---
 
