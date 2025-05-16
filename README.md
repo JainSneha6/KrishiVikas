@@ -64,102 +64,113 @@ Farmers, especially those managing less than 2 hectares of land, face multiple c
 </div>
 
 
-### 1️⃣ Agro-Climatic Crop Recommendation  
-🔍 **Description:**  
-Farmers receive crop recommendations suited to their region’s climate, soil, and season using a fine-tuned BERT model trained on agricultural domain data (**AgriBERT**). Recommendations also include interactive crop calendars that dynamically adjust for weather forecasts.
+### 1️⃣ Agro-Climatic Crop Recommendation
 
-🔧 **Tech Stack:**  
-- **Frontend:** React (web) / Ionic React (mobile) with calendar visualization libraries (e.g., FullCalendar.js)  
-- **Backend:** Flask / FastAPI for model serving  
-- **Model:** Fine-tuned AgriBERT (transformer) on labeled agri-domain corpora  
-- **Data Sources:** IMD weather APIs, ISRO/Bhuvan soil maps, local agri departments  
-- **Database:** PostgreSQL with PostGIS for geospatial queries  
+**Description:**  
+Recommends the most suitable crop varieties for a farmer’s region based on agro-climatic conditions like temperature, rainfall, soil type, and seasonal variations.
 
-🧠 **How Tech is Used:**  
-- Input: Location coordinates, soil type, weather  
-- NLP with AgriBERT to understand agronomic advisories  
-- Model inference ranks suitable crops  
-- Calendar auto-generates crop schedules based on regional climate  
+**Tech Stack:**
+- **NLP:** AgriBERT  
+- **Frontend:** React, Ionic  
+- **Backend:** Flask  
+- **External APIs:** Weather APIs, Soil databases  
 
+**How It Works:**
+- AgriBERT interprets location-specific agricultural text and historical patterns.
+- Real-time weather and soil data are parsed to identify optimal crop matches.
+- Recommendations are visualized via an interactive crop calendar with planting/harvesting schedules.
 
-### 2️⃣ Plant Disease Identification  
-🔍 **Description:**  
-Farmers upload photos of infected leaves. A CNN-based image classifier detects the disease and suggests remedial treatments, including pesticide or organic options.
+---
 
-🔧 **Tech Stack:**  
-- **Frontend:** React / Ionic with image upload & preview (Cropper.js)  
-- **Backend:** Flask / TensorFlow Serving for model inference  
-- **Model:** CNN architecture (e.g., ResNet50 or MobileNet for edge-friendliness)  
-- **Database:** MongoDB or Firebase for storing images and metadata  
+### 2️⃣ Plant Disease Identification
 
-🧠 **How Tech is Used:**  
-- Uploaded leaf image is processed and classified using a CNN  
-- Based on the detected disease class, a treatment recommendation engine fetches pesticide info from a curated dataset or API  
+**Description:**  
+Allows farmers to upload images of infected crops/leaves to instantly detect diseases and receive treatment advice.
 
-### 3️⃣ Precision Yield Forecasting  
-🔍 **Description:**  
-Uses Support Vector Machines (SVM) trained on historical crop data to predict expected yield. Provides actionable insights such as crop rotation, fertilizer planning, and irrigation schedules.
+**Tech Stack:**
+- **Deep Learning:** Convolutional Neural Networks (CNN with TensorFlow)  
+- **Frontend:** Image Upload Interface (React/Ionic)  
+- **Backend:** Flask API  
+- **Model Training:** ImageNet-pretrained CNN fine-tuned on plant disease datasets  
 
-🔧 **Tech Stack:**  
-- **Frontend:** Charts with D3.js or Chart.js for yield visualization  
-- **Backend:** Flask + Scikit-learn for SVM modeling  
-- **Model:** SVM regressor trained on features like land area, fertilizer quantity, rainfall, etc.  
-- **Data Sources:** Agmarknet, ICAR datasets, Farmer-reported data  
-- **Database:** MySQL / PostgreSQL  
+**How It Works:**
+- User uploads a photo of the plant or leaf.
+- The image is processed by a CNN classifier trained to detect over 30 common crop diseases.
+- Based on diagnosis, the system provides recommended pesticide and organic treatment options.
 
-🧠 **How Tech is Used:**  
-- Farmers input data like sowing time, area, inputs used  
-- Model returns predicted yield  
-- Expert system layer advises on optimization (e.g., nitrogen/phosphorus levels) 
+---
 
-### 4️⃣ Market Price Forecasting  
-🔍 **Description:**  
-Uses SARIMA (Seasonal AutoRegressive Integrated Moving Average) models for time-series forecasting of crop prices. Helps farmers time their sales for profit maximization.
+### 3️⃣ Precision Yield Forecasting
 
-🔧 **Tech Stack:**  
-- **Frontend:** Highcharts or Recharts for trend visualization  
-- **Backend:** Python (Statsmodels for SARIMA)  
-- **Data Sources:** Agmarknet, eNAM, local mandi feeds  
-- **Database:** TimescaleDB (for time-series optimized PostgreSQL)  
+**Description:**  
+Predicts expected crop yield per hectare using key farm-level inputs such as area, fertilizer usage, crop type, and weather data.
 
-🧠 **How Tech is Used:**  
-- SARIMA model trained on historical mandi price data  
-- User selects crop and region → future price trends displayed  
-- Suggests optimal harvest or storage durations  
+**Tech Stack:**
+- **Machine Learning:** Support Vector Machines (SVM via scikit-learn)  
+- **Backend:** Flask  
+- **Frontend:** React dashboards  
+- **Data Inputs:** Historical yield records, weather APIs, fertilizer logs  
 
-### 5️⃣ Crowdsourced Problem Reporting  
-🔍 **Description:**  
-Farmers report issues like pest outbreaks, waterlogging, etc. These are clustered and geo-mapped using DBSCAN and categorized using NLP + K-means. Severity scoring combines ML and rule-based logic.
+**How It Works:**
+- SVM regression models trained on multi-year agricultural datasets forecast yield potential.
+- Forecasts are visualized for seasonal planning and irrigation scheduling.
+- Suggestions for crop rotation and input optimization are provided alongside.
 
-🔧 **Tech Stack:**  
-- **Frontend:** Interactive maps with Leaflet.js or Mapbox  
-- **Backend:** Python with Scikit-learn (DBSCAN, K-means), spaCy/NLTK  
-- **Geospatial DB:** PostGIS  
-- **Storage:** Firebase for real-time sync or MongoDB  
+---
 
-🧠 **How Tech is Used:**  
-- Reports submitted via app (text + geolocation)  
-- Clustering (DBSCAN) identifies outbreak zones  
-- NLP categorizes issue type; severity scored  
-- Visual alerts on map + dashboard for authorities  
+### 4️⃣ Market Price Forecasting
 
-### 6️⃣ KrishiSahayak Chatbot  
-🔍 **Description:**  
-AI-powered chatbot assistant that suggests alternative income sources like apiculture or agro-tourism. Supports multilingual, voice, and offline capabilities.
+**Description:**  
+Provides short and mid-term predictions of crop prices using time-series models to help farmers choose optimal selling times.
 
-🔧 **Tech Stack:**  
-- **Frontend:** Ionic React + Web Speech API (for voice input/output)  
-- **Bot Framework:** Rasa / Dialogflow / Microsoft Bot Framework  
-- **NLP Model:** BERT / IndicBERT (for Indian language understanding)  
-- **Text-to-Speech (TTS):** Google Cloud TTS / Amazon Polly  
-- **Languages:** Hindi, Marathi, Tamil, Telugu, Bengali, etc.  
+**Tech Stack:**
+- **Time-Series Modeling:** SARIMA (statsmodels)  
+- **Frontend:** Dynamic D3.js/Chart.js visualizations  
+- **Backend:** Flask API  
+- **Data Source:** Historical mandi prices, open agri-market data  
 
-🧠 **How Tech is Used:**  
-- Chatbot NLP parses user's request (“How to start poultry farming?”)  
-- Fetches curated guides or summarizes from agri knowledge base  
-- Offers voice-based interaction for low-literacy users  
-- Supports offline mode via PWA and caching FAQs  
+**How It Works:**
+- SARIMA models analyze seasonal patterns in market price fluctuations.
+- Users can explore price trends over days/weeks/months for selected crops.
+- Forecasts are combined with region-specific market demand insights.
 
+---
+
+### 5️⃣ Crowdsourced Problem Reporting
+
+**Description:**  
+Allows farmers to report localized problems like pest outbreaks, nutrient deficiencies, or flood damage, which are clustered and prioritized using geospatial intelligence.
+
+**Tech Stack:**
+- **Clustering Algorithms:** DBSCAN for geo-tag clustering  
+- **Categorization:** K-Means + NLP classifiers (Scikit-learn)  
+- **Severity Scoring:** Hybrid Rule-Based + ML classification  
+- **Frontend:** Map-based UI (Leaflet.js)  
+- **Backend:** Flask  
+
+**How It Works:**
+- Reports submitted by farmers are geotagged and categorized using K-Means and NLP keyword extraction.
+- DBSCAN clusters incidents to detect regional problem hotspots.
+- Severity is auto-assessed to prioritize government or NGO response.
+
+---
+
+### 6️⃣ KrishiSahayak Chatbot – Alternative Income Advisor
+
+**Description:**  
+Conversational AI chatbot that guides farmers on diversifying income through activities like dairy, poultry, apiculture, and agro-tourism.
+
+**Tech Stack:**
+- **NLP Model:** Multilingual BERT (mBERT)  
+- **TTS:** Google Text-to-Speech API  
+- **Voice Interface:** Web Speech API / Ionic Native Plugins  
+- **Backend:** Flask  
+- **Frontend:** Chat UI (React/Ionic)  
+
+**How It Works:**
+- Farmers interact in their local language via text or voice.
+- mBERT processes queries and maps them to curated income options and resources.
+- TTS enables accessibility for non-literate users by reading chatbot responses aloud.  
 ---
 
 ## Architecture
